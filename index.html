@@ -84,4 +84,474 @@
   nav.links{display:flex;gap:34px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;}
   nav.links a{text-decoration:none;color:var(--ink-soft);transition:color .15s;}
   nav.links a:hover{color:var(--ink);}
-  .navtoggle{display:none;background:none;border:1px solid
+  .navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:0;padding:8px 10px;color:var(--ink);}
+  @media (max-width:860px){
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;padding:22px 32px;border-bottom:1px solid var(--line);gap:18px;}
+    nav.links.open{display:flex;}
+    .navtoggle{display:block;}
+  }
+
+  /* hero */
+  .hero{padding-top:88px;padding-bottom:88px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(32px,4.6vw,50px);line-height:1.14;margin:0 0 22px;font-weight:400;}
+  .hero h1 em{font-style:normal;}
+  .role{font-size:17px;color:var(--ink-soft);margin-bottom:30px;max-width:52ch;}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:0;
+    font-weight:600;font-size:13px;text-decoration:none;cursor:pointer;border:1px solid var(--ink);
+    text-transform:uppercase;letter-spacing:.08em;
+    transition:opacity .15s;
+  }
+  .btn:hover{opacity:.7;}
+  .btn-primary{background:var(--accent);color:var(--on-accent);}
+  .btn-ghost{border-color:var(--line);color:var(--ink);}
+
+  .photo-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--surface-2);border:1px solid var(--line);}
+  .photo-card img{width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none;transition:opacity .25s ease;}
+  .photo-hint{
+    position:absolute;left:0;bottom:0;right:0;background:var(--surface);border-top:1px solid var(--line);color:var(--ink-soft);
+    font-size:11px;padding:10px 14px;display:flex;align-items:center;gap:8px;letter-spacing:.06em;text-transform:uppercase;justify-content:center;
+  }
+  .dot-row{display:flex;gap:6px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--line);}
+  .dot.active{background:var(--ink);}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .kcomp{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;}
+  .kcomp li{display:flex;gap:14px;font-size:14.5px;color:var(--ink-soft);padding:16px 0;border-bottom:1px solid var(--line);}
+  .kcomp li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:7px;flex:none;}
+  .edu{margin-top:30px;font-size:14px;color:var(--ink-soft);}
+  .edu b{color:var(--ink);display:block;font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:24px 0 12px;font-weight:600;}
+  .edu b:first-child{margin-top:0;}
+  .edu ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:9px;}
+  .edu ol li{padding-left:2px;}
+  .edu a{color:var(--ink);text-decoration:underline;}
+
+  /* projects (avelan-style case list) */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px;}
+  @media (max-width:900px){.proj-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{background:var(--surface);}
+  .proj-art{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--surface-2);}
+  .proj-art img{width:100%;height:100%;object-fit:cover;display:block;}
+  .proj-body{padding:26px 26px 30px;}
+  .proj-card h4{font-family:"PT Serif",serif;font-size:18px;font-weight:700;margin:0 0 8px;}
+  .proj-card p{font-size:13.5px;color:var(--ink-soft);margin:0;max-width:42ch;}
+
+  /* stats */
+  .stats{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:52px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;text-align:left;}
+  @media (max-width:1040px){.stats-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:820px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat{padding:0 26px;border-left:1px solid var(--line);}
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat b{display:block;font-family:"PT Serif",serif;font-size:clamp(24px,2.6vw,34px);font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;}
+  .stat span{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:8px;max-width:24ch;}
+
+  /* documents */
+  .doc-block{margin-bottom:64px;}
+  .doc-block h3{font-size:21px;margin-bottom:8px;font-weight:700;}
+  .doc-block .lede{margin-bottom:30px;}
+  .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media (max-width:900px){.doc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.doc-grid{grid-template-columns:1fr;}}
+  .doc-card{
+    background:var(--surface);overflow:hidden;cursor:pointer;
+    transition:opacity .2s;
+  }
+  .doc-card:hover{opacity:.82;}
+  .doc-thumb{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--surface-2);}
+  .doc-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;user-select:none;-webkit-user-drag:none;pointer-events:none;filter:grayscale(.15);}
+  .doc-lock{position:absolute;top:10px;right:10px;background:var(--gold);color:#fff;border-radius:0;padding:5px 9px;font-size:10.5px;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.05em;}
+  .doc-body{padding:18px 20px 22px;}
+  .doc-body h4{font-size:14.5px;margin:0 0 6px;font-family:"Inter";font-weight:600;}
+  .doc-body p{font-size:12.5px;color:var(--ink-soft);margin:0;}
+
+  .placeholder-block{
+    border:1px dashed var(--line);border-radius:0;padding:44px 32px;text-align:center;color:var(--ink-soft);
+  }
+  .placeholder-block .ic{font-size:24px;margin-bottom:14px;display:block;opacity:.6;}
+  .placeholder-block h4{color:var(--ink);margin:0 0 8px;font-size:16px;font-weight:600;}
+  .placeholder-block p{max-width:56ch;margin:0 auto;font-size:13.5px;}
+
+  /* court */
+  .court-note{background:var(--surface-2);border-radius:0;padding:26px 30px;margin-bottom:32px;font-size:14px;color:var(--ink-soft);border-left:2px solid var(--ink);}
+  .court-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px;}
+  @media (max-width:760px){.court-grid{grid-template-columns:1fr;}}
+  .court-card{padding:30px;color:var(--ink-soft);background:var(--surface);}
+  .court-card .tag{display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);border:1px solid var(--gold);border-radius:0;padding:4px 9px;margin-bottom:16px;}
+  .court-card dl{margin:0 0 18px;font-size:13.5px;}
+  .court-card dt{color:var(--ink);font-weight:600;margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;}
+  .court-card dt:first-child{margin-top:0;}
+  .court-card dd{margin:4px 0 0;}
+  .court-card .btn{padding:10px 18px;font-size:11.5px;}
+
+  /* contact */
+  .contact-box{background:var(--ink);color:var(--bg);border-radius:0;padding:64px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+  @media (max-width:820px){.contact-box{grid-template-columns:1fr;padding:40px 28px;}}
+  .contact-box h2{color:var(--bg);}
+  .contact-box .lede{color:#c9c9c6;}
+  .contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .contact-list a{text-decoration:none;font-size:16px;font-weight:600;color:var(--gold-soft);}
+  .contact-list span{display:block;font-size:11px;color:#9a9a97;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+
+  footer{padding-block:36px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);}
+  footer a{color:var(--ink-soft);text-decoration:underline;}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(10,10,10,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;flex-direction:column;gap:14px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:min(560px,90vw);max-height:70vh;object-fit:contain;border-radius:0;user-select:none;-webkit-user-drag:none;pointer-events:none;}
+  .lb-cap{color:#eee;font-size:13px;text-align:center;max-width:60ch;}
+  .lb-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:0;padding:8px 14px;font-size:13px;cursor:pointer;}
+  .lb-watermark{position:absolute;top:22px;left:26px;color:#eee;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);padding:6px 10px;border-radius:0;}
+  .lb-nav{display:flex;gap:10px;}
+  .lb-nav button{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:0;padding:8px 14px;font-size:13px;cursor:pointer;}
+</style>
+
+<header class="site">
+  <div class="wrap bar">
+    <div class="logo">Кирилл Андреев<span>Правовая поддержка в строительстве и девелопменте</span></div>
+    <nav class="links" id="navLinks">
+      <a href="#about">Обо мне</a>
+      <a href="#projects">Проекты</a>
+      <a href="#achievements">Достижения</a>
+      <a href="#documents">Документы</a>
+      <a href="#court">Судебная практика</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <button class="navtoggle" id="navToggle" aria-label="Меню">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Юрист · Москва</div>
+        <h1>Кирилл Андреев —<br><em>сопровождение</em> строительных<br>и инфраструктурных проектов</h1>
+        <p class="role">Кирилл Андреев — 10+ лет юридической практики в строительстве и девелопменте.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Обсудить проект</a>
+          <a class="btn btn-ghost" href="#documents">Портфолио документов</a>
+        </div>
+      </div>
+      <div class="photo-card" id="photoCard" title="Нажмите, чтобы посмотреть следующее фото">
+        <img id="heroPhoto" src="photos/photo-1.jpg" alt="Кирилл Андреев, юрист">
+        <div class="photo-hint">
+          <span class="dot-row"><span class="dot active" data-i="0"></span><span class="dot" data-i="1"></span></span>
+          нажмите на фото
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">Обо мне</div>
+        <h2 style="font-size:28px;margin:0 0 22px;font-weight:400;">Практикующий юрист в сфере строительства и инфраструктуры</h2>
+        <p class="lede" style="margin-bottom:18px;">
+          Юрист с опытом комплексного сопровождения инвестиционно-строительных проектов на всех этапах — от приобретения земельного актива и структурирования сделки до ввода объекта в эксплуатацию. Специализируюсь на строительных и инфраструктурных контрактах, сделках с недвижимостью и правовом сопровождении девелоперских проектов.
+        </p>
+        <p class="lede" style="margin-bottom:18px;">
+          В рамках профессиональной деятельности руководил командой юристов, обеспечивая правовую поддержку проектов крупных девелоперов и строительных компаний, включая ЖК «Headliner», ЖК «Paveletskaya City», МФК «PRIORITY Басманный». Участвовал в запуске EPC-контракта со стороны генерального подрядчика по проекту переработки и производства сжиженного природного газа в районе посёлка Усть-Луга Ленинградской области.
+        </p>
+        <p class="lede">
+          Имею опыт работы как со стороны генерального подрядчика, так и со стороны технического заказчика и застройщика, что позволяет хорошо понимать интересы и задачи всех участников строительного процесса.
+        </p>
+        <div class="edu">
+          <b>Образование</b>
+          <ol>
+            <li>МГЮА им. О. Е. Кутафина — Институт частного права, градостроительное право</li>
+            <li>Смоленский гуманитарный университет — Юриспруденция, гражданско-правовая специализация</li>
+            <li>Смоленский гуманитарный университет — Экономическая безопасность</li>
+          </ol>
+          <b>Курсы повышения квалификации</b>
+          <ol>
+            <li>МГЮА им. О. Е. Кутафина — «Градостроительное право», направление «Строительство и недвижимость»</li>
+            <li>Центр инновационного обучения и развития (ЦИОР) — «Трудовое законодательство в РФ. Влияние COVID-19»</li>
+            <li><a href="https://runetlex-academy.ru/" target="_blank" rel="noopener">Runetlex Academy</a> — «Основы нейросетей»</li>
+            <li><a href="https://runetlex-academy.ru/" target="_blank" rel="noopener">Runetlex Academy</a> — «ИИ-агенты и вайбкодинг»</li>
+            <li><a href="https://runetlex-academy.ru/" target="_blank" rel="noopener">Runetlex Academy</a> — «Руководитель юридической функции в эпоху ИИ»</li>
+          </ol>
+        </div>
+      </div>
+      <div>
+        <ul class="kcomp">
+          <li>Сопровождение всего договорного цикла — от изысканий и проектирования до генерального подряда и комплексных поставок (договоры на проектирование, строительство и реконструкцию, управление проектом, осуществление функций технического заказчика, EPC-контракты и др.)</li>
+          <li>Сопровождение КРТ и инфраструктурных договоров, в том числе по законодательству города Москвы.</li>
+          <li>Сопровождение сделок с недвижимостью, включая куплю-продажу, аренду, установление сервитутов и иные сделки с недвижимым имуществом.</li>
+          <li>Юридическое консультирование по вопросам привлечения проектного финансирования, включая анализ правовых аспектов структурирования и реализации финансирования девелоперских проектов.</li>
+          <li>Помощь и поддержка в вопросах строительства, эксплуатации инженерных сетей, подключения капитальных сооружений к инженерной инфраструктуре, а также в вопросах ресурсоснабжения.</li>
+          <li>Арбитраж по строительным контрактам, включая досудебную стадию: представительство в арбитражных судах, третейских судах, МКАС при Торгово-промышленной палате РФ.</li>
+          <li>Работа с дебиторской задолженностью, включая претензионную работу, сопровождение взыскания задолженности, взаимодействие с банками и сопровождение процедур предъявления банковских гарантий к исполнению.</li>
+          <li>Сопровождение регуляторных и комплаенс-проверок, взаимодействия с надзорными и правоохранительными органами.</li>
+          <li>Трудовое право и комплаенс, включая разработку внутренних регламентов и локальных нормативных актов, а также сопровождение трудовых споров.</li>
+          <li>Автоматизация бизнес-процессов и юридической функции (Legal Operations), участие во внедрении и совершенствовании систем электронного документооборота, оптимизация договорной и правовой работы.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="eyebrow">Проекты</div>
+      <h2 style="font-size:28px;margin:0 0 10px;font-weight:400;">Объекты, в правовом сопровождении которых участвовал</h2>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-art"><img src="projects/headliner.jpg" alt="ЖК «Headliner»"></div>
+          <div class="proj-body">
+            <h4>ЖК «Headliner»</h4>
+            <p>Правовое сопровождение проекта на стороне генерального подрядчика — договорная работа, взаимодействие с техническим заказчиком, претензионно-судебное сопровождение строительства.</p>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-art"><img src="projects/paveletskaya.jpg" alt="ЖК «Paveletskaya City»"></div>
+          <div class="proj-body">
+            <h4>ЖК «Paveletskaya City»</h4>
+            <p>Комплексное юридическое сопровождение девелоперского проекта — договорная база, сопровождение сделок с недвижимостью и взаимодействие с контрагентами на всех этапах реализации.</p>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-art"><img src="projects/priority-basmanny.jpg" alt="МФК «PRIORITY Басманный»"></div>
+          <div class="proj-body">
+            <h4>МФК «PRIORITY Басманный»</h4>
+            <p>Юридическое сопровождение многофункционального комплекса — договорная работа, сопровождение сделок с недвижимостью и взаимодействие с участниками строительства.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <div class="eyebrow">Достижения</div>
+      <h2 style="font-size:28px;margin:0 0 34px;font-weight:400;">Ключевые результаты последних лет</h2>
+      <div class="stats">
+        <div class="stats-grid">
+          <div class="stat"><b>90%</b><span>выигранных дел из 50+ споров за 2021–2026</span></div>
+          <div class="stat"><b>~15 млрд ₽</b><span>макроэкономический эффект спора в МКАС по EPC-контракту</span></div>
+          <div class="stat"><b>25+</b><span>тендеров застройщиков по строительству коммерческих объектов и жилой недвижимости, средняя сумма контракта — 20 млрд ₽</span></div>
+          <div class="stat"><b>4</b><span>кадровые процедуры: 2 сокращения и 2 аттестации персонала по ТК РФ</span></div>
+          <div class="stat"><b>15–30%</b><span>сокращение времени на согласовательные процедуры за счёт автоматизации делопроизводства и юридической функции</span></div>
+        </div>
+      </div>
+      <ul class="kcomp" style="margin-top:40px;">
+        <li>Оказал юридическую консультационную поддержку партнёрам по КРТ и масштабному инвестиционному проекту на территории Некрасовки.</li>
+        <li>Сопровождал сделки по проектному финансированию, раскрытию опционов и договоров купли-продажи долей в проекте «Румянцево Град».</li>
+        <li>Обеспечил юридическое сопровождение оператора особой экономической зоны «Максимиха» при заключении сделок с резидентами, включая договоры управления и эксплуатации (распределительные пункты, сети, автомобильные дороги), сделки по межеванию и отчуждению земельных участков. Средняя сумма сделок — 5 млрд рублей.</li>
+        <li>Разработал финансово-правовую схему передачи в аренду ПАО «Россети» электросетевого хозяйства на срок 49 лет, а также дробления мощности в рамках технологического присоединения для оператора особой экономической зоны. Разработанная схема позволила оператору ОЭЗ продолжить строительство инфраструктуры, не дожидаясь окончания инвестиционной фазы электросетевой генерирующей компании.</li>
+        <li>Участвовал в более чем 25 тендерах застройщиков по строительству жилья и промышленных объектов, включая ЖК «Мангазея на Тульской», «OPUS», «PRIDE», «ONEST», «Luzhniki Collection», «HIGH LIFE», «Тушино-2018», спортивный комплекс им. Э. А. Стрельцова, объекты непроизводственного значения КПЭГ в Усть-Луге, мостовой переход через р. Лену в районе г. Якутска — сопровождение под ключ. Средняя цена контракта — 20 млрд рублей.</li>
+        <li>Разработал стратегию защиты и представлял интересы в суде МКАС по EPC-контракту, спор по которому был связан с изменением объёмов работ и поставок оборудования; экономический эффект — около 15 млрд рублей.</li>
+        <li>Участвовал в более чем 70 коммерческих арбитражных спорах по различным направлениям (взыскание аванса, изменение стоимости и объёмов работ, раскрытие банковских гарантий, оспаривание решений контрольно-надзорных органов); экономический эффект по спорам в различных компаниях составлял от 50 до 300 млн рублей и выше.</li>
+        <li>Обеспечил для крупного генерального подрядчика автоматизацию делопроизводства, внедрение линейки локальных нормативных актов и стандартизацию документов по договорной и судебно-претензионной работе, что позволило сократить затраты рабочего времени сотрудников на согласовательные процедуры на 15–30%.</li>
+        <li>Провёл сокращение персонала и аттестацию сотрудников в рамках трудового законодательства для одного из подрядчиков, успешно представлял интересы работодателя в трудовых спорах.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="documents" style="background:var(--surface-2);border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="eyebrow">Портфолио документов</div>
+      <h2 style="font-size:28px;margin:0 0 12px;font-weight:400;">Образцы юридической работы</h2>
+      <p class="lede" style="margin-bottom:48px;">Все документы обезличены и представлены в качестве шаблонов исключительно для демонстрации подхода к работе. Просмотр — во всплывающем окне, без возможности скачивания и копирования текста.</p>
+
+      <div class="doc-block">
+        <h3>Договоры</h3>
+        <p class="lede">Типовые договорные конструкции, разработанные для инфраструктурных и девелоперских проектов.</p>
+        <div class="doc-grid" id="docGridA"></div>
+      </div>
+
+      <div class="doc-block">
+        <h3>Финансово-юридические схемы</h3>
+        <p class="lede">Комплексные финансово-правовые модели, разработанные для инфраструктурных проектов.</p>
+        <div class="doc-grid" id="docGridD"></div>
+      </div>
+
+      <div class="doc-block">
+        <h3>Локальные нормативные акты</h3>
+        <p class="lede">Внутренние регламентирующие документы юридической функции.</p>
+        <div class="doc-grid" id="docGridB"></div>
+        <div class="placeholder-block" style="margin-top:24px;">
+          <span class="ic">＋</span>
+          <h4>Раздел пополняется</h4>
+          <p>Готовятся к публикации регламенты договорной и претензионно-исковой работы, формы внутренней отчётности.</p>
+        </div>
+      </div>
+
+      <div class="doc-block" style="margin-bottom:0;">
+        <h3>Образцы процессуальных документов</h3>
+        <p class="lede">Процессуальные документы, подготовленные для сопровождения споров.</p>
+        <div class="doc-grid" id="docGridC"></div>
+        <div class="placeholder-block" style="margin-top:24px;">
+          <span class="ic">＋</span>
+          <h4>Раздел пополняется</h4>
+          <p>Готовятся к публикации дополнительные образцы исковых заявлений, ходатайств и жалоб по строительным и договорным спорам.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="court">
+    <div class="wrap">
+      <div class="eyebrow">Судебная практика</div>
+      <h2 style="font-size:28px;margin:0 0 20px;font-weight:400;">Судебные решения с участием юриста</h2>
+      <div class="court-note">
+        Ниже — судебные акты по делам, в которых юрист принимал непосредственное участие. Просмотр текста решения — во всплывающем окне, без возможности скачивания и копирования. Раздел пополняется.
+      </div>
+      <div class="court-grid" id="courtGrid"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <h2 style="font-size:26px;margin:0 0 14px;font-weight:400;">Готов обсудить сопровождение проекта</h2>
+          <p class="lede">Сопровождение строительства и сделок с недвижимостью, руководство юридической функцией.</p>
+        </div>
+        <ul class="contact-list">
+          <li><span>Телефон</span><a href="tel:+79688621249">+7 (968) 862-12-49</a></li>
+          <li><span>Email</span><a href="mailto:andreeff.i2016@yandex.ru">andreeff.i2016@yandex.ru</a></li>
+          <li><span>Локация</span><span style="font-weight:600;color:#eee;">Москва, готов к командировкам</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© Кирилл Андреев. Материалы портфолио носят демонстрационный характер, все данные в образцах документов обезличены.</div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">Закрыть ✕</button>
+  <div class="lb-watermark">Образец · только просмотр</div>
+  <img id="lbImg" src="" alt="Образец документа" oncontextmenu="return false" draggable="false">
+  <div class="lb-nav">
+    <button id="lbPrev">← Пред. страница</button>
+    <button id="lbNext">След. страница →</button>
+  </div>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<script>
+(function(){
+  // photo cycling
+  var photos=["photos/photo-1.jpg","photos/photo-2.jpg"];
+  var idx=0;
+  var img=document.getElementById("heroPhoto");
+  var dots=document.querySelectorAll(".dot");
+  document.getElementById("photoCard").addEventListener("click",function(){
+    idx=(idx+1)%photos.length;
+    img.style.opacity=0;
+    setTimeout(function(){ img.src=photos[idx]; img.style.opacity=1; },120);
+    dots.forEach(function(d,i){ d.classList.toggle("active", i===idx); });
+  });
+
+  // nav toggle
+  document.getElementById("navToggle").addEventListener("click",function(){
+    document.getElementById("navLinks").classList.toggle("open");
+  });
+
+  // documents data
+  function pp(slug,n){ var a=[]; for(var i=1;i<=n;i++) a.push("docs/"+slug+"-"+i+".jpg"); return a; }
+  var docs=[
+    {title:"Договор на выполнение проектных работ (ПИР)", desc:"Стадия «Проект» — договор на разработку проектной документации. Полный текст — 30 листов, показаны первые 10.", pages:pp("contract-pir",10)},
+    {title:"Договор поставки товара", desc:"Типовая конструкция договора поставки для строительных проектов. Полный текст — 18 листов, показаны первые 10.", pages:pp("contract-supply",10)},
+    {title:"Договор на выполнение СМР", desc:"Договор строительного подряда на выполнение строительно-монтажных работ. Полный текст — 44 листа, показаны первые 10.", pages:pp("contract-smr",10)},
+    {title:"Соглашение (term sheet)", desc:"Основные условия сделки аренды земельных участков в ОЭЗ «Максимиха» — пример соглашения о намерениях. Полный текст — 25 листов, показаны первые 10.", pages:pp("termsheet",10)},
+    {title:"Договор оказания консалтинговых услуг (GR)", desc:"Типовая конструкция договора на оказание консультационных услуг по взаимодействию с органами государственной власти. Полный текст — 6 листов.", pages:pp("contract-gr",6)}
+  ];
+  var grid=document.getElementById("docGridA");
+  docs.forEach(function(d,i){
+    var card=document.createElement("div");
+    card.className="doc-card";
+    card.innerHTML='<div class="doc-thumb"><img src="'+d.pages[0]+'" alt="'+d.title+'"><span class="doc-lock">🔒 просмотр</span></div><div class="doc-body"><h4>'+d.title+'</h4><p>'+d.desc+'</p></div>';
+    card.addEventListener("click",function(){ openLB(docs, i, "образец обезличен, скачивание недоступно"); });
+    grid.appendChild(card);
+  });
+
+  var fusDocs=[
+    {title:"Финансово-юридическая схема (ФЮС)", desc:"Реструктуризация обязательств по технологическому присоединению объектов ОЭЗ к сетям ПАО «Россети МР». Документ на 11 листах, показаны первые 10.", pages:pp("fus",10)}
+  ];
+  var gridD=document.getElementById("docGridD");
+  fusDocs.forEach(function(d,i){
+    var card=document.createElement("div");
+    card.className="doc-card";
+    card.innerHTML='<div class="doc-thumb"><img src="'+d.pages[0]+'" alt="'+d.title+'"><span class="doc-lock">🔒 просмотр</span></div><div class="doc-body"><h4>'+d.title+'</h4><p>'+d.desc+'</p></div>';
+    card.addEventListener("click",function(){ openLB(fusDocs, i, "образец обезличен, скачивание недоступно"); });
+    gridD.appendChild(card);
+  });
+
+  // local normative acts
+  function pp3(slug,n){ var a=[]; for(var i=1;i<=n;i++) a.push("lna/"+slug+"-"+i+".jpg"); return a; }
+  var lnaDocs=[
+    {title:"Положение о юридическом управлении", desc:"Обезличенный образец положения о юридической службе (ред. 2.0, с Приложением 1) — структура, функции и зоны ответственности подразделения. Документ на 21 листе, показаны первые 10.", pages:pp3("polozhenie",10)},
+    {title:"Должностная инструкция юрисконсульта проекта", desc:"Обезличенный образец должностной инструкции юрисконсульта проекта — квалификационные требования, функциональные обязанности, права и ответственность. Документ на 17 листах, показаны первые 10.", pages:pp3("doljnostnaya",10)}
+  ];
+  var gridB=document.getElementById("docGridB");
+  lnaDocs.forEach(function(d,i){
+    var card=document.createElement("div");
+    card.className="doc-card";
+    card.innerHTML='<div class="doc-thumb"><img src="'+d.pages[0]+'" alt="'+d.title+'"><span class="doc-lock">🔒 просмотр</span></div><div class="doc-body"><h4>'+d.title+'</h4><p>'+d.desc+'</p></div>';
+    card.addEventListener("click",function(){ openLB(lnaDocs, i, "образец обезличен, скачивание недоступно"); });
+    gridB.appendChild(card);
+  });
+
+  // procedural documents
+  var procDocs=[
+    {title:"Отзыв на исковое заявление в МКАС", desc:"Обезличенный образец отзыва на иск по EPC-контракту в Международном коммерческом арбитражном суде при ТПП РФ. Документ на 11 листах, показаны первые 10.", pages:pp2("otzyv-mkas",10)}
+  ];
+  function pp2(slug,n){ var a=[]; for(var i=1;i<=n;i++) a.push("proc/"+slug+"-"+i+".jpg"); return a; }
+  var gridC=document.getElementById("docGridC");
+  procDocs.forEach(function(d,i){
+    var card=document.createElement("div");
+    card.className="doc-card";
+    card.innerHTML='<div class="doc-thumb"><img src="'+d.pages[0]+'" alt="'+d.title+'"><span class="doc-lock">🔒 просмотр</span></div><div class="doc-body"><h4>'+d.title+'</h4><p>'+d.desc+'</p></div>';
+    card.addEventListener("click",function(){ openLB(procDocs, i, "документ по делу, скачивание недоступно"); });
+    gridC.appendChild(card);
+  });
+
+  // court decisions data
+  function cp(slug,n){ var a=[]; for(var i=1;i<=n;i++) a.push("court/"+slug+"-"+i+".jpg"); return a; }
+  var courtCases=[
+    {num:"№ А40-141161/2024", court:"Арбитражный суд города Москвы", tag:"Иск удовлетворён", desc:"Оспаривание штрафа Отделения СФР по Москве и Московской области, начисленного за просрочку подачи формы ЕФС-1 в отношении 3048 застрахованных лиц.", complexity:"Массовый характер эпизода (свыше 3000 работников) и необходимость доказать явную несоразмерность штрафа тяжести нарушения — суд снизил штраф с 1 524 000 ₽ до 10 000 ₽, то есть более чем в 150 раз, что уникально для подобной категории дел.", pages:cp("case1",5)},
+    {num:"№ А40-186358/2023", court:"Арбитражный суд города Москвы", tag:"Иск удовлетворён", desc:"Взыскание неотработанного аванса по договору строительного подряда — 154,4 млн ₽.", complexity:"Крупная цена иска и необходимость опровергнуть ходатайство ответчика о назначении судебной экспертизы объёма невыполненных работ.", pages:cp("case2",6)},
+    {num:"№ А40-249243/2020", court:"Арбитражный суд города Москвы", tag:"Удовлетворён частично", desc:"Взыскание расходов на содержание нежилого помещения, фактически занимаемого государственным органом без оформленного договора.", complexity:"Спор с государственным органом (УВД по ЦАО ГУ МВД России), доказывание факта пользования помещением при отсутствии договорных отношений.", pages:cp("case3",4)},
+    {num:"№ А40-34721/2022", court:"Арбитражный суд города Москвы", tag:"Иск удовлетворён", desc:"Взыскание задолженности по двум банковским гарантиям на общую сумму 53,16 млн ₽.", complexity:"Банковский спор с участием третьего лица, доказывание оснований для предъявления требований по гарантиям к исполнению.", pages:cp("case4",6)},
+    {num:"№ А40-60220/2021", court:"Арбитражный суд города Москвы", tag:"Иск удовлетворён", desc:"Взыскание неустойки за просрочку строительно-монтажных работ по договору субподряда на станции метро «Беломорская» (участок «Речной вокзал» — «Ховрино»).", complexity:"Объект транспортной инфраструктуры (метрополитен), доказывание нарушения графика производства работ по этапам — суд взыскал неустойку в полном заявленном размере, не снизив её ни на какую сумму, несмотря на ходатайство ответчика о снижении.", pages:cp("case5",7)},
+    {num:"№ А41-78989/2022", court:"Арбитражный суд Московской области", tag:"Удовлетворён частично", desc:"Взыскание неустойки за нарушение сроков поставки оборудования по валютному договору поставки.", complexity:"Договор поставки содержал два противоречащих друг другу пункта о сроках поставки оборудования; валютное обязательство с пересчётом по курсу ЦБ РФ на дату платежа; требование уточнялось в процессе — суд взыскал 220 830 USD из заявленных 441 660 USD.", pages:cp("case6",8)}
+  ];
+  var courtGrid=document.getElementById("courtGrid");
+  courtCases.forEach(function(c,i){
+    var card=document.createElement("div");
+    card.className="court-card";
+    card.innerHTML='<span class="tag">'+c.tag+'</span><dl><dt>Дело</dt><dd>'+c.num+'</dd><dt>Суд</dt><dd>'+c.court+'</dd><dt>Краткое описание</dt><dd>'+c.desc+'</dd><dt>В чём сложность</dt><dd>'+c.complexity+'</dd></dl><a class="btn btn-ghost">Смотреть решение 🔒</a>';
+    card.querySelector(".btn").addEventListener("click",function(){ openLB(courtCases, i, "судебный акт, скачивание недоступно"); });
+    courtGrid.appendChild(card);
+  });
+
+  var lb=document.getElementById("lightbox"), lbImg=document.getElementById("lbImg"), lbCap=document.getElementById("lbCap");
+  var activeList=docs, curDoc=0, curPage=0, activeNote="";
+  function openLB(list,i,note){ activeList=list; curDoc=i; curPage=0; activeNote=note; render(); lb.classList.add("open"); }
+  function render(){
+    var d=activeList[curDoc];
+    lbImg.src=d.pages[curPage];
+    var label=d.title || (d.num+" — "+d.court);
+    lbCap.textContent=label+" — стр. "+(curPage+1)+" из "+d.pages.length+" ("+activeNote+")";
+  }
+  document.getElementById("lbClose").addEventListener("click",function(){ lb.classList.remove("open"); });
+  lb.addEventListener("click",function(e){ if(e.target===lb) lb.classList.remove("open"); });
+  document.getElementById("lbPrev").addEventListener("click",function(){ var d=activeList[curDoc]; curPage=(curPage-1+d.pages.length)%d.pages.length; render(); });
+  document.getElementById("lbNext").addEventListener("click",function(){ var d=activeList[curDoc]; curPage=(curPage+1)%d.pages.length; render(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") lb.classList.remove("open"); });
+  document.addEventListener("contextmenu",function(e){ if(e.target.tagName==="IMG") e.preventDefault(); });
+})();
+</script>
